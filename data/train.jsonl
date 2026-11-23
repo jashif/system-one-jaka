@@ -1,0 +1,66 @@
+{"context": "I received a payment reminder after paying", "question": "Which department should handle this request?", "options": ["Billing", "Technical support", "Sales", "Account"], "label": 0}
+{"context": "I received a payment reminder after paying", "question": "Who should receive this customer message?", "options": ["Billing", "Technical support", "Account", "Sales"], "label": 0}
+{"context": "I received a payment reminder after paying", "question": "What is the best routing category?", "options": ["Billing", "Technical support", "Account", "Sales"], "label": 0}
+{"context": "I cannot update my contact details", "question": "Which department should handle this request?", "options": ["Account", "Technical support", "Sales", "Billing"], "label": 0}
+{"context": "I cannot update my contact details", "question": "Who should receive this customer message?", "options": ["Technical support", "Billing", "Account", "Sales"], "label": 2}
+{"context": "I cannot update my contact details", "question": "What is the best routing category?", "options": ["Account", "Billing", "Technical support", "Sales"], "label": 0}
+{"context": "I need a refund for a duplicate payment", "question": "Which department should handle this request?", "options": ["Account", "Technical support", "Billing", "Sales"], "label": 2}
+{"context": "I need a refund for a duplicate payment", "question": "Who should receive this customer message?", "options": ["Billing", "Account", "Technical support", "Sales"], "label": 0}
+{"context": "I need a refund for a duplicate payment", "question": "What is the best routing category?", "options": ["Technical support", "Billing", "Sales", "Account"], "label": 1}
+{"context": "I need to change my registered address", "question": "Which department should handle this request?", "options": ["Account", "Sales", "Technical support", "Billing"], "label": 0}
+{"context": "I need to change my registered address", "question": "Who should receive this customer message?", "options": ["Billing", "Account", "Sales", "Technical support"], "label": 1}
+{"context": "I need to change my registered address", "question": "What is the best routing category?", "options": ["Technical support", "Billing", "Sales", "Account"], "label": 3}
+{"context": "I need to change my account email", "question": "Which department should handle this request?", "options": ["Technical support", "Account", "Billing", "Sales"], "label": 1}
+{"context": "I need to change my account email", "question": "Who should receive this customer message?", "options": ["Account", "Sales", "Billing", "Technical support"], "label": 0}
+{"context": "I need to change my account email", "question": "What is the best routing category?", "options": ["Billing", "Technical support", "Sales", "Account"], "label": 3}
+{"context": "What discounts are available for teams", "question": "Which department should handle this request?", "options": ["Sales", "Billing", "Technical support", "Account"], "label": 0}
+{"context": "What discounts are available for teams", "question": "Who should receive this customer message?", "options": ["Account", "Billing", "Sales", "Technical support"], "label": 2}
+{"context": "What discounts are available for teams", "question": "What is the best routing category?", "options": ["Billing", "Technical support", "Sales", "Account"], "label": 2}
+{"context": "My subscription charge looks wrong", "question": "Which department should handle this request?", "options": ["Billing", "Account", "Technical support", "Sales"], "label": 0}
+{"context": "My subscription charge looks wrong", "question": "Who should receive this customer message?", "options": ["Account", "Sales", "Technical support", "Billing"], "label": 3}
+{"context": "My subscription charge looks wrong", "question": "What is the best routing category?", "options": ["Account", "Sales", "Technical support", "Billing"], "label": 3}
+{"context": "I want to change my notification settings", "question": "Which department should handle this request?", "options": ["Account", "Billing", "Technical support", "Sales"], "label": 0}
+{"context": "I want to change my notification settings", "question": "Who should receive this customer message?", "options": ["Account", "Sales", "Technical support", "Billing"], "label": 0}
+{"context": "I want to change my notification settings", "question": "What is the best routing category?", "options": ["Technical support", "Sales", "Billing", "Account"], "label": 3}
+{"context": "The checkout button is unresponsive", "question": "Which department should handle this request?", "options": ["Sales", "Account", "Billing", "Technical support"], "label": 3}
+{"context": "The checkout button is unresponsive", "question": "Who should receive this customer message?", "options": ["Technical support", "Billing", "Sales", "Account"], "label": 0}
+{"context": "The checkout button is unresponsive", "question": "What is the best routing category?", "options": ["Sales", "Billing", "Account", "Technical support"], "label": 3}
+{"context": "Help me recover my account username", "question": "Which department should handle this request?", "options": ["Technical support", "Sales", "Account", "Billing"], "label": 2}
+{"context": "Help me recover my account username", "question": "Who should receive this customer message?", "options": ["Technical support", "Account", "Billing", "Sales"], "label": 1}
+{"context": "Help me recover my account username", "question": "What is the best routing category?", "options": ["Billing", "Account", "Technical support", "Sales"], "label": 1}
+{"context": "I would like to buy additional licenses", "question": "Which department should handle this request?", "options": ["Technical support", "Account", "Sales", "Billing"], "label": 2}
+{"context": "I would like to buy additional licenses", "question": "Who should receive this customer message?", "options": ["Technical support", "Billing", "Sales", "Account"], "label": 2}
+{"context": "I would like to buy additional licenses", "question": "What is the best routing category?", "options": ["Technical support", "Billing", "Sales", "Account"], "label": 2}
+{"context": "I get an unexpected timeout", "question": "Which department should handle this request?", "options": ["Account", "Technical support", "Billing", "Sales"], "label": 1}
+{"context": "I get an unexpected timeout", "question": "Who should receive this customer message?", "options": ["Sales", "Account", "Billing", "Technical support"], "label": 3}
+{"context": "I get an unexpected timeout", "question": "What is the best routing category?", "options": ["Sales", "Billing", "Technical support", "Account"], "label": 2}
+{"context": "Please reverse this extra charge", "question": "Which department should handle this request?", "options": ["Billing", "Technical support", "Sales", "Account"], "label": 0}
+{"context": "Please reverse this extra charge", "question": "Who should receive this customer message?", "options": ["Billing", "Technical support", "Sales", "Account"], "label": 0}
+{"context": "Please reverse this extra charge", "question": "What is the best routing category?", "options": ["Technical support", "Account", "Sales", "Billing"], "label": 3}
+{"context": "I cannot understand the invoice total", "question": "Which department should handle this request?", "options": ["Account", "Sales", "Billing", "Technical support"], "label": 2}
+{"context": "I cannot understand the invoice total", "question": "Who should receive this customer message?", "options": ["Sales", "Billing", "Technical support", "Account"], "label": 1}
+{"context": "I cannot understand the invoice total", "question": "What is the best routing category?", "options": ["Technical support", "Sales", "Billing", "Account"], "label": 2}
+{"context": "I want to delete my account", "question": "Which department should handle this request?", "options": ["Account", "Technical support", "Sales", "Billing"], "label": 0}
+{"context": "I want to delete my account", "question": "Who should receive this customer message?", "options": ["Billing", "Account", "Sales", "Technical support"], "label": 1}
+{"context": "I want to delete my account", "question": "What is the best routing category?", "options": ["Technical support", "Billing", "Account", "Sales"], "label": 2}
+{"context": "I want to upgrade to the enterprise plan", "question": "Which department should handle this request?", "options": ["Sales", "Technical support", "Account", "Billing"], "label": 0}
+{"context": "I want to upgrade to the enterprise plan", "question": "Who should receive this customer message?", "options": ["Billing", "Technical support", "Account", "Sales"], "label": 3}
+{"context": "I want to upgrade to the enterprise plan", "question": "What is the best routing category?", "options": ["Sales", "Billing", "Technical support", "Account"], "label": 0}
+{"context": "The payment did not match my receipt", "question": "Which department should handle this request?", "options": ["Account", "Technical support", "Billing", "Sales"], "label": 2}
+{"context": "The payment did not match my receipt", "question": "Who should receive this customer message?", "options": ["Account", "Billing", "Technical support", "Sales"], "label": 1}
+{"context": "The payment did not match my receipt", "question": "What is the best routing category?", "options": ["Account", "Technical support", "Billing", "Sales"], "label": 2}
+{"context": "Please schedule a product demo", "question": "Which department should handle this request?", "options": ["Technical support", "Billing", "Sales", "Account"], "label": 2}
+{"context": "Please schedule a product demo", "question": "Who should receive this customer message?", "options": ["Account", "Technical support", "Sales", "Billing"], "label": 2}
+{"context": "Please schedule a product demo", "question": "What is the best routing category?", "options": ["Technical support", "Sales", "Account", "Billing"], "label": 1}
+{"context": "The password reset link is broken", "question": "Which department should handle this request?", "options": ["Technical support", "Billing", "Sales", "Account"], "label": 0}
+{"context": "The password reset link is broken", "question": "Who should receive this customer message?", "options": ["Billing", "Account", "Technical support", "Sales"], "label": 2}
+{"context": "The password reset link is broken", "question": "What is the best routing category?", "options": ["Account", "Sales", "Technical support", "Billing"], "label": 2}
+{"context": "Please update my profile name", "question": "Which department should handle this request?", "options": ["Technical support", "Billing", "Sales", "Account"], "label": 3}
+{"context": "Please update my profile name", "question": "Who should receive this customer message?", "options": ["Sales", "Account", "Technical support", "Billing"], "label": 1}
+{"context": "Please update my profile name", "question": "What is the best routing category?", "options": ["Technical support", "Billing", "Account", "Sales"], "label": 2}
+{"context": "I was charged twice for my order", "question": "Which department should handle this request?", "options": ["Sales", "Account", "Technical support", "Billing"], "label": 3}
+{"context": "I was charged twice for my order", "question": "Who should receive this customer message?", "options": ["Billing", "Account", "Sales", "Technical support"], "label": 0}
+{"context": "I was charged twice for my order", "question": "What is the best routing category?", "options": ["Billing", "Technical support", "Sales", "Account"], "label": 0}
+{"context": "My account page will not load", "question": "Which department should handle this request?", "options": ["Technical support", "Account", "Sales", "Billing"], "label": 0}
+{"context": "My account page will not load", "question": "Who should receive this customer message?", "options": ["Account", "Sales", "Billing", "Technical support"], "label": 3}
+{"context": "My account page will not load", "question": "What is the best routing category?", "options": ["Billing", "Technical support", "Account", "Sales"], "label": 1}

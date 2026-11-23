@@ -1,0 +1,15 @@
+{"context": "The app crashes when I log in", "question": "Which department should handle this request?", "options": ["Sales", "Billing", "Technical support", "Account"], "label": 2}
+{"context": "The app crashes when I log in", "question": "Who should receive this customer message?", "options": ["Account", "Billing", "Technical support", "Sales"], "label": 2}
+{"context": "The app crashes when I log in", "question": "What is the best routing category?", "options": ["Sales", "Technical support", "Account", "Billing"], "label": 1}
+{"context": "Can someone explain the pricing tiers", "question": "Which department should handle this request?", "options": ["Account", "Billing", "Sales", "Technical support"], "label": 2}
+{"context": "Can someone explain the pricing tiers", "question": "Who should receive this customer message?", "options": ["Account", "Sales", "Billing", "Technical support"], "label": 1}
+{"context": "Can someone explain the pricing tiers", "question": "What is the best routing category?", "options": ["Billing", "Sales", "Technical support", "Account"], "label": 1}
+{"context": "Can you provide a price quote", "question": "Which department should handle this request?", "options": ["Sales", "Billing", "Account", "Technical support"], "label": 0}
+{"context": "Can you provide a price quote", "question": "Who should receive this customer message?", "options": ["Sales", "Account", "Technical support", "Billing"], "label": 0}
+{"context": "Can you provide a price quote", "question": "What is the best routing category?", "options": ["Account", "Sales", "Technical support", "Billing"], "label": 1}
+{"context": "How can I enable two factor authentication", "question": "Which department should handle this request?", "options": ["Sales", "Account", "Technical support", "Billing"], "label": 1}
+{"context": "How can I enable two factor authentication", "question": "Who should receive this customer message?", "options": ["Technical support", "Sales", "Billing", "Account"], "label": 3}
+{"context": "How can I enable two factor authentication", "question": "What is the best routing category?", "options": ["Sales", "Account", "Technical support", "Billing"], "label": 1}
+{"context": "Do you offer annual contracts", "question": "Which department should handle this request?", "options": ["Billing", "Sales", "Technical support", "Account"], "label": 1}
+{"context": "Do you offer annual contracts", "question": "Who should receive this customer message?", "options": ["Sales", "Technical support", "Billing", "Account"], "label": 0}
+{"context": "Do you offer annual contracts", "question": "What is the best routing category?", "options": ["Sales", "Billing", "Technical support", "Account"], "label": 0}

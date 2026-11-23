@@ -1,0 +1,15 @@
+{"context": "I need a proposal for 100 users", "question": "Which department should handle this request?", "options": ["Sales", "Technical support", "Billing", "Account"], "label": 0}
+{"context": "I need a proposal for 100 users", "question": "Who should receive this customer message?", "options": ["Account", "Technical support", "Billing", "Sales"], "label": 3}
+{"context": "I need a proposal for 100 users", "question": "What is the best routing category?", "options": ["Billing", "Sales", "Account", "Technical support"], "label": 1}
+{"context": "My invoice has an incorrect amount", "question": "Which department should handle this request?", "options": ["Account", "Sales", "Billing", "Technical support"], "label": 2}
+{"context": "My invoice has an incorrect amount", "question": "Who should receive this customer message?", "options": ["Sales", "Account", "Technical support", "Billing"], "label": 3}
+{"context": "My invoice has an incorrect amount", "question": "What is the best routing category?", "options": ["Sales", "Technical support", "Billing", "Account"], "label": 2}
+{"context": "The mobile app freezes on startup", "question": "Which department should handle this request?", "options": ["Sales", "Technical support", "Billing", "Account"], "label": 1}
+{"context": "The mobile app freezes on startup", "question": "Who should receive this customer message?", "options": ["Sales", "Technical support", "Billing", "Account"], "label": 1}
+{"context": "The mobile app freezes on startup", "question": "What is the best routing category?", "options": ["Sales", "Billing", "Technical support", "Account"], "label": 2}
+{"context": "The website shows a server error", "question": "Which department should handle this request?", "options": ["Sales", "Billing", "Technical support", "Account"], "label": 2}
+{"context": "The website shows a server error", "question": "Who should receive this customer message?", "options": ["Billing", "Technical support", "Account", "Sales"], "label": 1}
+{"context": "The website shows a server error", "question": "What is the best routing category?", "options": ["Billing", "Technical support", "Sales", "Account"], "label": 1}
+{"context": "I cannot connect to the API", "question": "Which department should handle this request?", "options": ["Billing", "Account", "Sales", "Technical support"], "label": 3}
+{"context": "I cannot connect to the API", "question": "Who should receive this customer message?", "options": ["Sales", "Billing", "Account", "Technical support"], "label": 3}
+{"context": "I cannot connect to the API", "question": "What is the best routing category?", "options": ["Sales", "Technical support", "Account", "Billing"], "label": 1}
