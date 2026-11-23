@@ -1,47 +1,55 @@
 import torch
 from torch import nn
-from transformers import AutoModel, AutoTokenizer
 
-BASE_MODEL = "answerdotai/ModernBERT-base"
+BASE_MODEL = 'answerdotai/ModernBERT-base'
 
-class DynamicDecisionModel(nn.Module):
-    """Jointly encode context/question/option pairs; normalize over candidate options."""
-    def __init__(self, base_model=BASE_MODEL):
+class SystemOneV3(nn.Module):
+    """Encode context once, and each question/option once. Attend jointly per question."""
+    def __init__(self, base_model=BASE_MODEL, encoder=None, hidden=None, layers=2, heads=4):
         super().__init__()
-        self.encoder = AutoModel.from_pretrained(base_model)
-        h = self.encoder.config.hidden_size
-        self.scorer = nn.Sequential(nn.Linear(h, h // 2), nn.GELU(), nn.Dropout(0.1), nn.Linear(h // 2, 1))
+        if encoder is None:
+            from transformers import AutoModel
+            encoder = AutoModel.from_pretrained(base_model)
+        self.encoder = encoder
+        h = hidden or self.encoder.config.hidden_size
+        self.type_embedding = nn.Embedding(3, h)
+        self.decision = nn.TransformerEncoder(
+            nn.TransformerEncoderLayer(h, heads, dim_feedforward=h*2, dropout=.1,
+                                       batch_first=True, activation='gelu', norm_first=True),
+            num_layers=layers, enable_nested_tensor=False)
+        self.scorer = nn.Sequential(nn.LayerNorm(h), nn.Linear(h, h//2), nn.GELU(), nn.Linear(h//2, 1))
 
-    def forward(self, input_ids, attention_mask, option_mask=None):
-        # [B, O, T] -> [B*O, T]
-        b, o, t = input_ids.shape
-        out = self.encoder(input_ids=input_ids.reshape(b*o,t), attention_mask=attention_mask.reshape(b*o,t))
-        # CLS representation for ModernBERT
-        pooled = out.last_hidden_state[:, 0]
-        scores = self.scorer(pooled).reshape(b,o)
-        if option_mask is not None:
-            scores = scores.masked_fill(~option_mask.bool(), torch.finfo(scores.dtype).min)
-        return scores
+    def encode(self, ids, mask):
+        # ModernBERT uses a CLS token at index 0.
+        return self.encoder(input_ids=ids, attention_mask=mask).last_hidden_state[:, 0]
 
-
-def format_pair(context, question, option):
-    return f"Context: {context} Question: {question} Candidate answer: {option}"
-
-
-def collate(batch, tokenizer, max_length=256):
-    max_options = max(len(x['options']) for x in batch)
-    flat = []
-    masks = []
-    for row in batch:
-        n = len(row['options'])
-        if n < 2:
-            raise ValueError('Each example requires at least 2 options')
-        flat.extend([format_pair(row['context'], row['question'], v) for v in row['options']])
-        flat.extend([format_pair('', '', '')] * (max_options-n))
-        masks.append([True]*n+[False]*(max_options-n))
-    enc = tokenizer(flat, padding=True, truncation=True, max_length=max_length, return_tensors='pt')
-    b = len(batch)
-    return {'input_ids':enc['input_ids'].reshape(b,max_options,-1),
-            'attention_mask':enc['attention_mask'].reshape(b,max_options,-1),
-            'option_mask':torch.tensor(masks,dtype=torch.bool),
-            'labels':torch.tensor([x['label'] for x in batch],dtype=torch.long)}
+    def forward(self, batch):
+        # Batch consists of separately tokenized contexts, questions and options.
+        c = self.encode(batch['context_ids'], batch['context_attention'])
+        q = self.encode(batch['question_ids'], batch['question_attention'])
+        o = self.encode(batch['option_ids'], batch['option_attention'])
+        owners = batch['question_owner']
+        qidx = batch['option_question']
+        # One context + one question + all candidate options, per question.
+        # Padding is excluded from attention and logits.
+        groups = []
+        lengths = []
+        for j in range(q.shape[0]):
+            options = o[qidx == j]
+            tokens = torch.cat([c[owners[j]:owners[j]+1], q[j:j+1], options], dim=0)
+            kinds = torch.cat([torch.zeros(1,device=c.device,dtype=torch.long),
+                               torch.ones(1,device=c.device,dtype=torch.long),
+                               torch.full((len(options),),2,device=c.device,dtype=torch.long)])
+            groups.append(tokens + self.type_embedding(kinds))
+            lengths.append(len(options))
+        width = max(len(g) for g in groups)
+        padded = torch.zeros(len(groups), width, c.shape[-1], device=c.device, dtype=c.dtype)
+        padding = torch.ones(len(groups), width, device=c.device, dtype=torch.bool)
+        for j,g in enumerate(groups):
+            padded[j,:len(g)] = g
+            padding[j,:len(g)] = False
+        mixed = self.decision(padded, src_key_padding_mask=padding)
+        logits = self.scorer(mixed[:,2:]).squeeze(-1)
+        option_mask = ~padding[:,2:]
+        logits = logits.masked_fill(~option_mask, torch.finfo(logits.dtype).min)
+        return logits, option_mask

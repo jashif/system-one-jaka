@@ -1,79 +1,38 @@
-# System 1 Dynamic Decision Model
+# System 1 V3 — shared-context transformer decision model
 
-A trainable **ModernBERT cross-encoder** that scores a variable set of candidate options. Each candidate is encoded jointly with the context and question; scores are normalized across the supplied options. This is **not** a reproduction of Laya and does **not** guarantee calibrated probabilities without adequate data.
+Experimental Laya-inspired architecture, **not Laya**. Encodes the context once per request, each question once, and each option once, then jointly compares options with a 2-layer transformer decision head. Unlike V2, supports multiple questions in a single call. Encoder representations are still computed for each distinct question and option; this is not a single ModernBERT pass for the whole request.
 
-## Setup
+## GitHub Codespaces (4 CPU cores / 16 GB RAM)
 
-Python 3.10+ recommended. From this directory:
+Use a **new folder**; do not overwrite your V2 checkpoint. From this folder:
 
 ```bash
 python -m venv .venv
-source .venv/bin/activate  # Windows: .venv\Scripts\activate
+source .venv/bin/activate
 pip install -r requirements.txt
+pytest -q
+python train.py --epochs 8 --batch-size 2 --lr 0.0003 --freeze-encoder --output checkpoints/system1-v3
+python evaluate.py --checkpoint checkpoints/system1-v3 --data data/test.jsonl
+python calibrate.py --checkpoint checkpoints/system1-v3 --data data/val.jsonl
+python evaluate.py --checkpoint checkpoints/system1-v3 --data data/test.jsonl
+python cli.py --checkpoint checkpoints/system1-v3 --context 'The application crashes when the user logs in' --question 'Which team should handle this?' --options Billing Sales Technical Account
+uvicorn api:app --host 0.0.0.0 --port 8000
 ```
 
-The first training run downloads ModernBERT-base from Hugging Face (~hundreds of MB). Internet access is needed.
+The first training run downloads ModernBERT-base weights. CPU training may take a long time. Training from scratch in V3 is necessary: V2's head checkpoint is not compatible with V3's transformer head. Training saves the best validation-loss checkpoint, not necessarily the highest-accuracy checkpoint. The `--freeze-encoder` setting trains only the decision head.
+
+API docs: `http://localhost:8000/docs` (forward port 8000 in Codespaces).
+
+POST `/decide`:
+
+```json
+{"context":"Customer was charged twice", "questions":[{"question":"Department?", "options":["Billing","Sales","Technical"]},{"question":"Priority?", "options":["Low","Medium","High"]}]}
+```
 
 ## Data
 
-`data/train.jsonl`, `data/val.jsonl`, and `data/test.jsonl` are **small synthetic demo sets**, not production-quality training data. Each JSONL record has:
+The bundled `data/*.jsonl` files are V2's small synthetic customer-support examples. Each line can be either a legacy single-question record (`context`, `question`, `options`, `label`) or a multi-question record (`context`, `questions`: array of `{question, options, label}`). Labels are zero-based option indices. The same question can have any number of options >=2. **These data are not a serious generalization benchmark**; the training/test templates may overlap. Add real and template-disjoint datasets before drawing conclusions.
 
-```json
-{"context":"Charged twice for my subscription", "question":"Which team should handle this?", "options":["Billing", "Sales", "Technical support"], "label":0}
-```
+## Metrics and caveats
 
-`label` is the zero-based index of the correct option. Options can vary in number and order. For serious training, gather many diverse human-labeled examples, ensure train/test separation by source and time, and avoid label leakage.
-
-## Train
-
-```bash
-python train.py --epochs 3 --batch-size 4 --output checkpoints/system1
-```
-
-On CPU this can be slow. GPU recommended. The script saves the best validation-loss checkpoint, tokenizer, and configuration.
-
-## Evaluate and calibrate
-
-```bash
-python evaluate.py --data data/test.jsonl
-python calibrate.py --data data/val.jsonl
-cat checkpoints/system1/calibration.json
-python evaluate.py --data data/test.jsonl --temperature YOUR_FITTED_TEMPERATURE
-```
-
-Calibration is optional and must be fitted on held-out validation data. The API accepts an explicit temperature (default 1.0); it does not silently apply calibration.
-
-## Predict from CLI
-
-```bash
-python cli.py --context 'Customer was charged twice' --question 'Which team should handle this?' --options Billing Sales Technical
-```
-
-## Start API
-
-```bash
-uvicorn api:app --host 127.0.0.1 --port 8000
-```
-
-Try:
-
-```bash
-curl -X POST http://127.0.0.1:8000/predict -H 'Content-Type: application/json' -d '{"context":"Customer was charged twice","question":"Which team should handle this?","options":["Billing","Sales","Technical support"]}'
-```
-
-Open http://127.0.0.1:8000/docs for Swagger UI. Do not expose this unauthenticated API to the public internet.
-
-## Design limitations
-
-- Candidate options are processed as separate sequences, batched into a single encoder invocation. Runtime and memory grow with the number of options; this is not one constant-cost encoding of the entire decision.
-- A fixed maximum sequence length truncates long context and options.
-- Softmax values are relative to the options supplied and may be overconfident.
-- There is no abstention, open-ended generation, RL training, or out-of-distribution detector.
-- Demo examples are intentionally tiny; meaningful accuracy requires a larger, diverse dataset.
-- Latency metrics include tokenization and Python overhead, and depend on hardware.
-
-## Tests
-
-```bash
-pytest -q
-```
+`evaluate.py` reports accuracy, log loss, multiclass Brier score, 10-bin ECE and per-request latency. `calibrate.py` fits a positive softmax temperature **only on validation data**, writing `temperature.json`; `evaluate.py` then applies it on test data. ECE on a 32-example test set is unstable. Compare V2 and V3 on identical examples and hardware. V3 may be slower due to multiple encoder calls and attention overhead; no speed or accuracy gains are guaranteed. V3 does not implement RLCD or Laya's exact architecture.

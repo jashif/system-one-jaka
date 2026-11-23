@@ -1,23 +1,20 @@
 import os
 from functools import lru_cache
-from fastapi import FastAPI, HTTPException
-from pydantic import BaseModel, Field
+from fastapi import FastAPI
+from pydantic import BaseModel,Field
 from predict import Predictor
 
-app=FastAPI(title='System 1 Decision API',version='0.1.0')
-class DecisionRequest(BaseModel):
-    context:str=Field(max_length=20000)
-    question:str=Field(min_length=1,max_length=2000)
-    options:list[str]=Field(min_length=2,max_length=32)
-    temperature:float=Field(default=1.0,gt=0,le=10)
-
+app=FastAPI(title='System 1 V3 Decision API')
+class Question(BaseModel):
+    question:str
+    options:list[str]=Field(min_length=2)
+class Request(BaseModel):
+    context:str
+    questions:list[Question]=Field(min_length=1)
 @lru_cache(maxsize=1)
-def predictor():return Predictor(os.getenv('CHECKPOINT','checkpoints/system1'))
-
+def model():return Predictor(os.environ.get('SYSTEM1_CHECKPOINT','checkpoints/system1-v3'))
+@app.post('/decide')
+def decide(request:Request):
+    return model().predict_many(request.context,[q.model_dump() for q in request.questions])
 @app.get('/health')
 def health():return {'status':'ok'}
-
-@app.post('/predict')
-def predict(req:DecisionRequest):
-    try:return predictor().predict(req.context,req.question,req.options,req.temperature)
-    except ValueError as e:raise HTTPException(status_code=422,detail=str(e))

@@ -4,6 +4,5 @@ fastapi>=0.110
 uvicorn>=0.29
 pydantic>=2
 numpy>=1.26
-scikit-learn>=1.4
-pytest>=8
 scipy>=1.12
+pytest>=8
