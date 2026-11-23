@@ -1,15 +1,32 @@
-{"context": "I need a proposal for 100 users", "question": "Which department should handle this request?", "options": ["Sales", "Technical support", "Billing", "Account"], "label": 0}
-{"context": "I need a proposal for 100 users", "question": "Who should receive this customer message?", "options": ["Account", "Technical support", "Billing", "Sales"], "label": 3}
-{"context": "I need a proposal for 100 users", "question": "What is the best routing category?", "options": ["Billing", "Sales", "Account", "Technical support"], "label": 1}
-{"context": "My invoice has an incorrect amount", "question": "Which department should handle this request?", "options": ["Account", "Sales", "Billing", "Technical support"], "label": 2}
-{"context": "My invoice has an incorrect amount", "question": "Who should receive this customer message?", "options": ["Sales", "Account", "Technical support", "Billing"], "label": 3}
-{"context": "My invoice has an incorrect amount", "question": "What is the best routing category?", "options": ["Sales", "Technical support", "Billing", "Account"], "label": 2}
-{"context": "The mobile app freezes on startup", "question": "Which department should handle this request?", "options": ["Sales", "Technical support", "Billing", "Account"], "label": 1}
-{"context": "The mobile app freezes on startup", "question": "Who should receive this customer message?", "options": ["Sales", "Technical support", "Billing", "Account"], "label": 1}
-{"context": "The mobile app freezes on startup", "question": "What is the best routing category?", "options": ["Sales", "Billing", "Technical support", "Account"], "label": 2}
-{"context": "The website shows a server error", "question": "Which department should handle this request?", "options": ["Sales", "Billing", "Technical support", "Account"], "label": 2}
-{"context": "The website shows a server error", "question": "Who should receive this customer message?", "options": ["Billing", "Technical support", "Account", "Sales"], "label": 1}
-{"context": "The website shows a server error", "question": "What is the best routing category?", "options": ["Billing", "Technical support", "Sales", "Account"], "label": 1}
-{"context": "I cannot connect to the API", "question": "Which department should handle this request?", "options": ["Billing", "Account", "Sales", "Technical support"], "label": 3}
-{"context": "I cannot connect to the API", "question": "Who should receive this customer message?", "options": ["Sales", "Billing", "Account", "Technical support"], "label": 3}
-{"context": "I cannot connect to the API", "question": "What is the best routing category?", "options": ["Sales", "Technical support", "Account", "Billing"], "label": 1}
+{"context": "Customer says: I want to deactivate my account I need support.", "question": "What is the best routing category?", "options": ["Account", "Sales", "Technical", "Billing"], "label": 0}
+{"context": "Incoming request: I would like to upgrade to the business tier", "question": "What is the best routing category?", "options": ["Sales", "Account", "Billing", "Technical"], "label": 0}
+{"context": "Customer says: I want to deactivate my account", "question": "Which department is responsible?", "options": ["Sales", "Technical", "Account", "Billing"], "label": 2}
+{"context": "Incoming request: My username needs to be changed Can you assist?", "question": "What is the best routing category?", "options": ["Sales", "Account", "Technical", "Billing"], "label": 1}
+{"context": "I cannot connect to the server Can you assist?", "question": "Which department is responsible?", "options": ["Account", "Technical", "Sales", "Billing"], "label": 1}
+{"context": "Customer says: I have a question about a refund Please help.", "question": "Which department is responsible?", "options": ["Account", "Sales", "Billing", "Technical"], "label": 2}
+{"context": "Support ticket: I would like to upgrade to the business tier Can you assist?", "question": "Which team should handle this request?", "options": ["Sales", "Technical", "Account", "Billing"], "label": 0}
+{"context": "Incoming request: The app has a software bug", "question": "Who should receive this customer message?", "options": ["Sales", "Technical", "Account", "Billing"], "label": 1}
+{"context": "Support ticket: I have a question about a refund Please help.", "question": "Which department is responsible?", "options": ["Sales", "Account", "Billing", "Technical"], "label": 2}
+{"context": "Customer says: The tax on my invoice looks wrong Can you assist?", "question": "What is the best routing category?", "options": ["Billing", "Technical", "Account", "Sales"], "label": 0}
+{"context": "Support ticket: Can someone explain the product offering I need support.", "question": "What is the best routing category?", "options": ["Sales", "Account", "Technical", "Billing"], "label": 0}
+{"context": "Support ticket: I would like to upgrade to the business tier Can you assist?", "question": "What is the best routing category?", "options": ["Account", "Technical", "Sales", "Billing"], "label": 2}
+{"context": "The tax on my invoice looks wrong Please help.", "question": "Which team should handle this request?", "options": ["Billing", "Sales", "Account", "Technical"], "label": 0}
+{"context": "Support ticket: My username needs to be changed Can you assist?", "question": "Which team should handle this request?", "options": ["Technical", "Sales", "Billing", "Account"], "label": 3}
+{"context": "Incoming request: The tax on my invoice looks wrong Please help.", "question": "Who should receive this customer message?", "options": ["Technical", "Sales", "Billing", "Account"], "label": 2}
+{"context": "I have a question about a refund Can you assist?", "question": "What is the best routing category?", "options": ["Account", "Billing", "Sales", "Technical"], "label": 1}
+{"context": "Support ticket: I have a question about a refund Please help.", "question": "What is the best routing category?", "options": ["Technical", "Billing", "Sales", "Account"], "label": 1}
+{"context": "Support ticket: The app has a software bug Can you assist?", "question": "Who should receive this customer message?", "options": ["Account", "Sales", "Technical", "Billing"], "label": 2}
+{"context": "Customer says: I cannot connect to the server", "question": "What is the best routing category?", "options": ["Billing", "Technical", "Sales", "Account"], "label": 1}
+{"context": "The app has a software bug Can you assist?", "question": "Which department is responsible?", "options": ["Sales", "Technical", "Account", "Billing"], "label": 1}
+{"context": "My username needs to be changed Can you assist?", "question": "Which team should handle this request?", "options": ["Account", "Sales", "Technical", "Billing"], "label": 0}
+{"context": "Incoming request: I cannot connect to the server", "question": "What is the best routing category?", "options": ["Billing", "Technical", "Sales", "Account"], "label": 1}
+{"context": "Customer says: The tax on my invoice looks wrong Please help.", "question": "Who should receive this customer message?", "options": ["Technical", "Billing", "Sales", "Account"], "label": 1}
+{"context": "Incoming request: Can someone explain the product offering", "question": "What is the best routing category?", "options": ["Technical", "Account", "Sales", "Billing"], "label": 2}
+{"context": "The app has a software bug Can you assist?", "question": "Who should receive this customer message?", "options": ["Account", "Billing", "Sales", "Technical"], "label": 3}
+{"context": "Incoming request: I want to deactivate my account", "question": "Who should receive this customer message?", "options": ["Account", "Technical", "Sales", "Billing"], "label": 0}
+{"context": "I would like to upgrade to the business tier", "question": "Who should receive this customer message?", "options": ["Technical", "Billing", "Account", "Sales"], "label": 3}
+{"context": "Support ticket: I cannot connect to the server I need support.", "question": "Which team should handle this request?", "options": ["Account", "Technical", "Billing", "Sales"], "label": 1}
+{"context": "Support ticket: Can someone explain the product offering Can you assist?", "question": "Which department is responsible?", "options": ["Billing", "Technical", "Account", "Sales"], "label": 3}
+{"context": "I want to deactivate my account Can you assist?", "question": "Which department is responsible?", "options": ["Sales", "Billing", "Account", "Technical"], "label": 2}
+{"context": "Can someone explain the product offering", "question": "Which team should handle this request?", "options": ["Technical", "Sales", "Billing", "Account"], "label": 1}
+{"context": "Incoming request: My username needs to be changed Can you assist?", "question": "What is the best routing category?", "options": ["Technical", "Billing", "Sales", "Account"], "label": 3}

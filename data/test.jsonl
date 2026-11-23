@@ -1,15 +1,32 @@
-{"context": "The app crashes when I log in", "question": "Which department should handle this request?", "options": ["Sales", "Billing", "Technical support", "Account"], "label": 2}
-{"context": "The app crashes when I log in", "question": "Who should receive this customer message?", "options": ["Account", "Billing", "Technical support", "Sales"], "label": 2}
-{"context": "The app crashes when I log in", "question": "What is the best routing category?", "options": ["Sales", "Technical support", "Account", "Billing"], "label": 1}
-{"context": "Can someone explain the pricing tiers", "question": "Which department should handle this request?", "options": ["Account", "Billing", "Sales", "Technical support"], "label": 2}
-{"context": "Can someone explain the pricing tiers", "question": "Who should receive this customer message?", "options": ["Account", "Sales", "Billing", "Technical support"], "label": 1}
-{"context": "Can someone explain the pricing tiers", "question": "What is the best routing category?", "options": ["Billing", "Sales", "Technical support", "Account"], "label": 1}
-{"context": "Can you provide a price quote", "question": "Which department should handle this request?", "options": ["Sales", "Billing", "Account", "Technical support"], "label": 0}
-{"context": "Can you provide a price quote", "question": "Who should receive this customer message?", "options": ["Sales", "Account", "Technical support", "Billing"], "label": 0}
-{"context": "Can you provide a price quote", "question": "What is the best routing category?", "options": ["Account", "Sales", "Technical support", "Billing"], "label": 1}
-{"context": "How can I enable two factor authentication", "question": "Which department should handle this request?", "options": ["Sales", "Account", "Technical support", "Billing"], "label": 1}
-{"context": "How can I enable two factor authentication", "question": "Who should receive this customer message?", "options": ["Technical support", "Sales", "Billing", "Account"], "label": 3}
-{"context": "How can I enable two factor authentication", "question": "What is the best routing category?", "options": ["Sales", "Account", "Technical support", "Billing"], "label": 1}
-{"context": "Do you offer annual contracts", "question": "Which department should handle this request?", "options": ["Billing", "Sales", "Technical support", "Account"], "label": 1}
-{"context": "Do you offer annual contracts", "question": "Who should receive this customer message?", "options": ["Sales", "Technical support", "Billing", "Account"], "label": 0}
-{"context": "Do you offer annual contracts", "question": "What is the best routing category?", "options": ["Sales", "Billing", "Technical support", "Account"], "label": 0}
+{"context": "Customer says: I need a sales proposal", "question": "Which team should handle this request?", "options": ["Account", "Billing", "Technical", "Sales"], "label": 3}
+{"context": "Customer says: I need to change the account owner Can you assist?", "question": "Which department is responsible?", "options": ["Sales", "Account", "Billing", "Technical"], "label": 1}
+{"context": "Customer says: I need to change the account owner", "question": "Which department is responsible?", "options": ["Account", "Technical", "Billing", "Sales"], "label": 0}
+{"context": "Incoming request: I want to compare your plans before buying Can you assist?", "question": "What is the best routing category?", "options": ["Account", "Technical", "Billing", "Sales"], "label": 3}
+{"context": "Support ticket: Please update the phone number on my profile I need support.", "question": "Which team should handle this request?", "options": ["Sales", "Billing", "Technical", "Account"], "label": 3}
+{"context": "Please update the phone number on my profile I need support.", "question": "Which department is responsible?", "options": ["Sales", "Account", "Billing", "Technical"], "label": 1}
+{"context": "Customer says: The application shows a stack trace Can you assist?", "question": "Which department is responsible?", "options": ["Sales", "Account", "Billing", "Technical"], "label": 3}
+{"context": "Customer says: Please update the phone number on my profile Can you assist?", "question": "What is the best routing category?", "options": ["Billing", "Account", "Technical", "Sales"], "label": 1}
+{"context": "Incoming request: Please update the phone number on my profile Please help.", "question": "What is the best routing category?", "options": ["Technical", "Sales", "Billing", "Account"], "label": 3}
+{"context": "Incoming request: I was overcharged for the service Can you assist?", "question": "Who should receive this customer message?", "options": ["Billing", "Technical", "Sales", "Account"], "label": 0}
+{"context": "Customer says: My payment reminder is incorrect Can you assist?", "question": "Who should receive this customer message?", "options": ["Account", "Sales", "Technical", "Billing"], "label": 3}
+{"context": "Support ticket: The application shows a stack trace Please help.", "question": "Which department is responsible?", "options": ["Account", "Technical", "Sales", "Billing"], "label": 1}
+{"context": "I want to compare your plans before buying I need support.", "question": "What is the best routing category?", "options": ["Account", "Sales", "Technical", "Billing"], "label": 1}
+{"context": "Support ticket: I need to change the account owner", "question": "What is the best routing category?", "options": ["Account", "Sales", "Billing", "Technical"], "label": 0}
+{"context": "Customer says: My payment reminder is incorrect Please help.", "question": "Who should receive this customer message?", "options": ["Billing", "Technical", "Sales", "Account"], "label": 0}
+{"context": "I need a sales proposal", "question": "Who should receive this customer message?", "options": ["Account", "Billing", "Sales", "Technical"], "label": 2}
+{"context": "I want to compare your plans before buying I need support.", "question": "What is the best routing category?", "options": ["Billing", "Technical", "Sales", "Account"], "label": 2}
+{"context": "Customer says: The application shows a stack trace I need support.", "question": "What is the best routing category?", "options": ["Billing", "Sales", "Technical", "Account"], "label": 2}
+{"context": "My payment reminder is incorrect", "question": "What is the best routing category?", "options": ["Sales", "Account", "Technical", "Billing"], "label": 3}
+{"context": "Incoming request: I want to compare your plans before buying Please help.", "question": "What is the best routing category?", "options": ["Billing", "Technical", "Account", "Sales"], "label": 3}
+{"context": "Incoming request: The application shows a stack trace Please help.", "question": "Which team should handle this request?", "options": ["Billing", "Account", "Technical", "Sales"], "label": 2}
+{"context": "Customer says: I need a sales proposal Please help.", "question": "Which department is responsible?", "options": ["Sales", "Account", "Billing", "Technical"], "label": 0}
+{"context": "Customer says: I was overcharged for the service Can you assist?", "question": "Who should receive this customer message?", "options": ["Billing", "Account", "Sales", "Technical"], "label": 0}
+{"context": "Customer says: The login page keeps crashing I need support.", "question": "Who should receive this customer message?", "options": ["Sales", "Account", "Technical", "Billing"], "label": 2}
+{"context": "Support ticket: I was overcharged for the service Please help.", "question": "Which team should handle this request?", "options": ["Account", "Sales", "Billing", "Technical"], "label": 2}
+{"context": "Customer says: I need a sales proposal", "question": "What is the best routing category?", "options": ["Billing", "Technical", "Account", "Sales"], "label": 3}
+{"context": "The login page keeps crashing", "question": "Which department is responsible?", "options": ["Account", "Sales", "Technical", "Billing"], "label": 2}
+{"context": "Incoming request: The login page keeps crashing", "question": "Which team should handle this request?", "options": ["Sales", "Billing", "Account", "Technical"], "label": 3}
+{"context": "Incoming request: The login page keeps crashing", "question": "What is the best routing category?", "options": ["Billing", "Account", "Sales", "Technical"], "label": 3}
+{"context": "Incoming request: I was overcharged for the service", "question": "Who should receive this customer message?", "options": ["Billing", "Technical", "Account", "Sales"], "label": 0}
+{"context": "Incoming request: I need to change the account owner I need support.", "question": "Which team should handle this request?", "options": ["Sales", "Billing", "Account", "Technical"], "label": 2}
+{"context": "Customer says: My payment reminder is incorrect Please help.", "question": "Which team should handle this request?", "options": ["Account", "Billing", "Technical", "Sales"], "label": 1}
